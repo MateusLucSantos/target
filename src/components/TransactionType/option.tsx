@@ -28,7 +28,9 @@ export function Option({
         color={isSelected ? colors.white : colors.gray[500]}
       />
 
-      <Text style={[s.title, isSelected && { color: colors.white }]}></Text>
+      <Text style={[s.title, isSelected && { color: colors.white }]}>
+        {title}
+      </Text>
     </Pressable>
   );
 }

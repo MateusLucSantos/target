@@ -1,28 +1,28 @@
 import { StyleSheet } from "react-native";
 
-import { colors,fontFamily } from "@/theme";
+import { colors, fontFamily } from "@/theme";
 
-export const s= StyleSheet.create({
-container:{
-    height: 72,
-    width: '100%',
-    flexDirection: 'row',
-    alignItems:'center',
-    gap:12,
-    paddingBottom:16
-},
-content:{
+export const s = StyleSheet.create({
+  container: {
+    paddingVertical: 16,
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 12,
+    paddingBottom: 16,
+  },
+  content: {
     flex: 1,
-    gap:7
-},
-name:{
+    gap: 7,
+  },
+  name: {
     fontSize: 14,
     color: colors.black,
-    fontFamily: fontFamily.medium
-},
-status:{
+    fontFamily: fontFamily.medium,
+  },
+  status: {
     fontSize: 10,
-    color:colors.gray[500],
-    fontFamily: fontFamily.regular
-},
-})
+    color: colors.gray[500],
+    fontFamily: fontFamily.regular,
+  },
+});

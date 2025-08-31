@@ -4,7 +4,7 @@ import { Input } from "@/components/Input";
 import { PageHeader } from "@/components/PageHeader";
 import { useTargetDataBase } from "@/database/useTargetDataBase";
 import { router, useLocalSearchParams } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Alert, View } from "react-native";
 
 export default function Target() {
@@ -26,6 +26,7 @@ export default function Target() {
     setIsProcessing(true);
 
     if (params.id) {
+      //update
     } else {
       create();
     }
@@ -43,6 +44,23 @@ export default function Target() {
       setIsProcessing(false);
     }
   }
+
+  async function fetchDetainls(id: number) {
+    try {
+      const response = await targetDatabase.show(id);
+      setName(response.name);
+      setAmount(response.amount);
+    } catch (error) {
+      Alert.alert("Erro", "Não foi possível carregar os detalhes da meta.");
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    if (params.id) {
+      fetchDetainls(Number(params.id));
+    }
+  }, [params.id]);
 
   return (
     <View style={{ flex: 1, padding: 24 }}>
